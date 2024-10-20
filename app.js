@@ -9,6 +9,8 @@ require ('dotenv').config ()
 app.use (cors ({
     origin: process.env.AUTHORIZED_DOMAIN
 }))
+// Middleware pour parser le JSON
+app.use(express.json());
 
 
 // Importation des controlleurs
