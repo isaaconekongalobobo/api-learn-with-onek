@@ -1,7 +1,15 @@
 const express = require ('express')
-require ('dotenv').config ()
 const app = express ()
+// Importation de cors, permettant les requettes vers un dommaine precis
+const cors = require ('cors')
 const port = process.env.PORT || 3000
+require ('dotenv').config ()
+
+// Je definis les dommaines autorisee a faire des requettes a mon API
+app.use (cors ({
+    origin: process.env.AUTHORIZED_DOMAIN
+}))
+
 
 // Importation des controlleurs
 const {homeController} = require ('./controllers/home/homeController')

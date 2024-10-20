@@ -1,7 +1,6 @@
 const homeController = (req, res) => {
-    console.log("Page d'acceuil");
     res.status = 200,
-    res.send ('Bienvenue')
+    res.send (` Endpoint: ${req.host}/learn-with-onek/ai/prompt`)
 }
 
 module.exports = {
