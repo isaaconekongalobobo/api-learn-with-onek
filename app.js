@@ -21,7 +21,7 @@ app.get ('/',(req, res) => {
 })
 
 // Route pour le chatbot
-app.get ('/learn-with-onek/ai/prompt', (req, res) => {
+app.post ('/learn-with-onek/ai/prompt', (req, res) => {
     chatController (req, res)
 })
 
