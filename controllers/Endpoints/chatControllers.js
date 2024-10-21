@@ -26,13 +26,18 @@ const chatController = async (req, res) => {
         // Je renvoie le statu e la reponse au format json
         res.status (200).json (responseData)
     }).catch ((error) => {
-        console.log(`Erreur lors de la requette : ${error.message}`);
-        res.status(403).json({
-            message: 'Desole, vous avez atteint le nombre limite de prompt gratuit, veuillez changer de formule pour continuer',
-        });
+        if (error.cause.code === 'EAI_AGAIN') {
+            res.status(400).json({
+                message: 'Il semble que vous ete hors connexion',
+            });
+        } else {
+            res.status(403).json({
+                message: 'Desole, vous avez atteint le nombre limite de prompt gratuit, veuillez changer de formule pour continuer',
+            });            
+        }
+
     }).finally (() => {
-        console.log('Nouvelle requette');
-        console.log(`Data: ${userQuestion}`);        
+        res.end()
     })
 }
 
