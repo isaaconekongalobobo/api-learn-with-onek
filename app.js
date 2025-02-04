@@ -16,6 +16,7 @@ app.use(express.json());
 // Importation des controlleurs
 const {homeController} = require ('./controllers/home/homeController')
 const { chatController } = require('./controllers/Endpoints/chatControllers')
+const { GetAllPosts } = require('./controllers/allPosts')
 
 // Route principale 
 app.get ('/',(req, res) => {
@@ -26,6 +27,9 @@ app.get ('/',(req, res) => {
 app.post ('/learn-with-onek/ai/prompt', (req, res) => {
     chatController (req, res)
 })
+
+// Route pour recuperer tout les posts
+app.get ('/posts', (req, res) => GetAllPosts (req, res))
 
 app.listen (port, () => {
     console.log(`L'api Learn with Onek tourne sur le port ${port}`);
