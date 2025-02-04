@@ -16,7 +16,7 @@ app.use(express.json());
 // Importation des controlleurs
 const {homeController} = require ('./controllers/home/homeController')
 const { chatController } = require('./controllers/Endpoints/chatControllers')
-const { GetAllPosts } = require('./controllers/allPosts')
+const { GetAllPosts } = require('./controllers/postsController')
 
 // Route principale 
 app.get ('/',(req, res) => homeController (req,res))
