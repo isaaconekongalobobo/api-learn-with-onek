@@ -19,14 +19,10 @@ const { chatController } = require('./controllers/Endpoints/chatControllers')
 const { GetAllPosts } = require('./controllers/allPosts')
 
 // Route principale 
-app.get ('/',(req, res) => {
-    homeController (req,res)
-})
+app.get ('/',(req, res) => homeController (req,res))
 
 // Route pour le chatbot
-app.post ('/learn-with-onek/ai/prompt', (req, res) => {
-    chatController (req, res)
-})
+app.post ('/learn-with-onek/ai/prompt', (req, res) => chatController (req, res))
 
 // Route pour recuperer tout les posts
 app.get ('/posts', (req, res) => GetAllPosts (req, res))
